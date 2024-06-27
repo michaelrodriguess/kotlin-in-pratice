@@ -9,10 +9,15 @@ fun main() {
     names.addAll(input.split(",").map { it.trim() })
     names.sort()
 
-    println("\nSorted names below:")
-    var i = 0
-    while(i < names.size) {
-        println(names[i])
-        i++
-    }
+	if(names.size > 1)
+	{
+		println("\nSorted names below:")
+		var i = 0
+	    while(i < names.size) {		
+		    println(names[i])
+			i++
+	    }
+	} else {
+		println("\nAre you kidding me, just one name? \nI need more than one name to work my little young man")
+	}
 }
