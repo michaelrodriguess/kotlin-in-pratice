@@ -6,7 +6,7 @@ fun main() {
     print("Enter the names separated by commas to be sorted in alphabetical order: ")
     val input = readLine() ?: return
 
-    names.addAll(input.split(","))
+    names.addAll(input.split(",").map { it.trim() })
     names.sort()
 
     println("\nSorted names below:")
