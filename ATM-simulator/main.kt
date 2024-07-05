@@ -1,3 +1,4 @@
+
 fun main() {
 	val accounts = mutableMapOf<Int, Account>()
 
@@ -9,8 +10,18 @@ fun main() {
 
 	print("Digite o número da conta: ")
 	val accountNumber  = readLine()?.toIntOrNull() ?: 0
+
+	
+	if (!accounts.containsKey(accountNumber)) {
+        	println("Conta não encontrada! Tente novamente.")
+		return
+	}
+
+	val account = accounts[accountNumber]!!
+
 	while (true)
 	{
+		clearScreen()
 	        println("Menu:")
         	println("1. Consultar Saldo")
         	println("2. Sacar")
@@ -19,39 +30,46 @@ fun main() {
 
         	print("Digite sua opção: ")
 		val option = readLine()?.toIntOrNull() ?: 0
-
-		if (!accounts.containsKey(accountNumber)) {
-			println("Conta não encontrada! Tente novamente.")       
-			continue
-		}
-
-
-		val account = accounts[accountNumber]!!
-
+		
+		clearScreen()
 		when(option) {
 			1 -> {
 				val balance = account.checkBalance()
-				println("Seu saldo é de: R$$balance")
+				println("Seu saldo é de: R$$balance\n")
+				pause()
 			}
 			2 -> {
 				print("Digite o valor para saque: R$")
 				val value = readLine()?.toDoubleOrNull() ?: 0
 
 				account.GetMoney(value.toDouble())
+				pause()
 			}
 			3 -> {
 				print("Digite o valor para depósito: R$")
             			val value = readLine()?.toDoubleOrNull() ?: 0
 
 				account.depositMoney(value.toDouble())
+				pause()
 			}
 			0 -> {
-				println("\nObrigado por usar o simulador de caixa eletrônico da BrazilianCriaMakers!")
+				println("\nObrigado por usar o simulador de caixa eletrônico da Bank Brazilian Cria Makers!")
                 		break
 			}
 			else -> {
-				println("Opção inválida!")
+				println("Opção inválida!\n")
+				pause()
 			}
 		}
 	}
+}
+
+fun clearScreen() {
+	print("\u001b[H\u001b[2J")
+	System.out.flush()
+}
+
+fun pause() {
+    	println("Pressione Enter para continuar...")
+	readLine()
 }
