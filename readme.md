@@ -25,14 +25,13 @@ If Java is not installed, download and install it from the [official Java websit
 ```
 If Kotlin is not installed, you can download and install it by following the instructions on the [official Kotlin website](https://kotlinlang.org/docs/command-line.html#manual-install).
 
-
-
+---
 ### ATM simulator
 
-
+---
 ### Alphabetical sorting 
 
-
+---
 ### Is this palindrome
 
 1. Navigate to the directory is-this-palindrome
